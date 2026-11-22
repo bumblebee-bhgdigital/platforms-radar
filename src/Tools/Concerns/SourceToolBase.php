@@ -96,7 +96,8 @@ abstract class SourceToolBase implements ToolContract, ToolMetadataContract
                 if ($existing) {
                     return ToolResult::success(['source' => $this->sourceToArray($existing), 'created' => false, 'message' => "Quelle mit dieser URL existiert bereits (#{$existing->id})."]);
                 }
-                $s = RadarSource::create($data + ['team_id' => $team->id, 'user_id' => $context->user->id]);
+                // fresh(): Standardwerte der Datenbank (source_type, is_active, error_count) mit zurückgeben
+                $s = RadarSource::create($data + ['team_id' => $team->id, 'user_id' => $context->user->id])->fresh();
 
                 return ToolResult::success(['source' => $this->sourceToArray($s), 'created' => true]);
             }

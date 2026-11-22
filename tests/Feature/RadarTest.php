@@ -122,6 +122,7 @@ XML;
         $post = (new \Platform\Radar\Tools\CreateSourceTool())->execute(['name' => 'EU', 'url' => 'https://ex.test/eu', 'topic' => 'regulation', 'cluster' => 'europa', 'note' => 'Neue EU-Gesetze'], $this->ctx());
         $this->assertTrue($post->success, json_encode($post->toArray()));
         $id = $post->data['source']['id'];
+        $this->assertSame(['rss', true, 0], [$post->data['source']['source_type'], $post->data['source']['is_active'], $post->data['source']['error_count']], 'Standardwerte in der Antwort');
         $again = (new \Platform\Radar\Tools\CreateSourceTool())->execute(['name' => 'EU doppelt', 'url' => 'https://ex.test/eu'], $this->ctx());
         $this->assertFalse($again->data['created']);
         $this->assertFalse((new \Platform\Radar\Tools\CreateSourceTool())->execute(['name' => 'X', 'url' => 'ftp://x'], $this->ctx())->success);
