@@ -35,6 +35,7 @@ return [
         'user_agent' => env('RADAR_USER_AGENT', 'PlatformRadar/1.0 (+feed reader)'),
     ],
 
-    // Einträge älter als so viele Tage werden gelöscht (0 = nie).
-    'retention_days' => env('RADAR_RETENTION_DAYS', 730),
+    // Einträge sind Durchlauf: nach so vielen Tagen gelöscht (0 = nie). Was bleiben soll, ist die Erkenntnis –
+    // sie lebt beim Leser (Gedächtnis, Signal, Notiz) mit Titel und Link als Quellenangabe.
+    'retention_days' => env('RADAR_RETENTION_DAYS', 90),
 ];

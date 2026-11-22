@@ -18,7 +18,11 @@ Agenten und Menschen beim Lesen. Radar kennt kein anderes Fachmodul; andere Modu
 
 - `radar:pull` – stündlich (:07): ruft fällige aktive Quellen ab (Intervall je Quelle). `--source=ID`, `--force`.
   Fehler landen an der Quelle (`last_error`, `error_count`); der Abrufzeitpunkt wird trotzdem gesetzt.
-- `radar:prune` – täglich 03:37: löscht Einträge älter als `radar.retention_days` (Standard 730, 0 = nie).
+- `radar:prune` – täglich 03:37: löscht Einträge älter als `radar.retention_days` (Standard 90, `RADAR_RETENTION_DAYS`, 0 = nie).
+
+**Datenhaltung:** Einträge sind Durchlauf, keine Archivierung. Was bleiben soll, ist die Erkenntnis – sie lebt beim Leser
+(Gedächtnis, Signal, Management Book, Notiz) und trägt Titel und Link des Eintrags als Quellenangabe. Radar weiß nicht,
+wer was zitiert, und hält deshalb auch nichts zurück.
 
 ## MCP-Tools
 

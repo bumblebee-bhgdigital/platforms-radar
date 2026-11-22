@@ -159,7 +159,7 @@ XML;
     public function test_prune_removes_old_items(): void
     {
         $s = $this->source();
-        RadarItem::create(['team_id' => $s->team_id, 'source_id' => $s->id, 'fingerprint' => sha1('old'), 'title' => 'alt', 'fetched_at' => now()->subDays(800)]);
+        RadarItem::create(['team_id' => $s->team_id, 'source_id' => $s->id, 'fingerprint' => sha1('old'), 'title' => 'alt', 'fetched_at' => now()->subDays(91)]);
         RadarItem::create(['team_id' => $s->team_id, 'source_id' => $s->id, 'fingerprint' => sha1('new'), 'title' => 'neu', 'fetched_at' => now()]);
         $this->artisan('radar:prune')->assertSuccessful();
         $this->assertSame(['neu'], RadarItem::pluck('title')->all());
