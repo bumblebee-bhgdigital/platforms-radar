@@ -1,0 +1,27 @@
+{
+    "name": "martin3r/platform-radar",
+    "description": "Radar: sammelt Umwelt-Feeds (RSS/Atom) roh und dedupliziert – lesen und bewerten tun Agenten und Menschen",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Platform Team",
+            "email": "team@platform.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Platform\\Radar\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Platform\\Radar\\RadarServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
